@@ -134,7 +134,7 @@ void atualizarQuantidade(){
 
 void excluirProduto(){
     int identificador;
-    int i, j, achou;
+    int i, j, achou = 0;
 
     printf("\nDigite o identificador do produto que deseja excluir \n");
     scanf("%d", &identificador);
@@ -143,7 +143,7 @@ void excluirProduto(){
         if(produtos[i].identificador == identificador){
             achou = 1;
 
-            printf("O produto %s com o identificador %d será excluído \n", produtos[i].nome, identificador);
+            printf("\nO produto %s com o identificador %d será excluído \n", produtos[i].nome, identificador);
 
             for(j = i; j < totalProdutos - 1; j++){
                 produtos[j] = produtos[j + 1];
