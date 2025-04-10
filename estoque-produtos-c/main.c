@@ -132,6 +132,35 @@ void atualizarQuantidade(){
 
 }
 
+void excluirProduto(){
+    int identificador;
+    int i, j, achou;
+
+    printf("\nDigite o identificador do produto que deseja excluir \n");
+    scanf("%d", &identificador);
+
+    for(i = 0; i < totalProdutos; i++){
+        if(produtos[i].identificador == identificador){
+            achou = 1;
+
+            printf("O produto %s com o identificador %d será excluído \n", produtos[i].nome, identificador);
+
+            for(j = i; j < totalProdutos - 1; j++){
+                produtos[j] = produtos[j + 1];
+            }
+
+            totalProdutos--;
+
+            printf("\nO Produto foi excluído com sucesso \n");
+            return;
+        }
+    }
+
+    if(achou == 0){
+        printf("\nIdentificador %d inválido\n", identificador); 
+    }
+}
+
 int main(){
     SetConsoleOutputCP(CP_UTF8);
 
@@ -144,7 +173,8 @@ int main(){
         printf("Digite 2 para mostrar todos os produtos \n");
         printf("Digite 3 para buscar um produto pelo código \n");
         printf("Digite 4 para atualizar a quantidade de um produto em estoque \n");
-        printf("Digite 5 para sair \n");
+        printf("Digite 5 para a exclusão de algum produto desejado \n");
+        printf("Digite 6 para sair \n");
         scanf("%d", &opcao);
         while(getchar() != '\n');
 
@@ -166,6 +196,10 @@ int main(){
                 break;
             }
             case 5: {
+                excluirProduto();
+                break;
+            }
+            case 6: {
                 printf("\nEncerrando o sistema! \n");
                 return;
             }
