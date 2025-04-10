@@ -105,7 +105,7 @@ void buscarProduto(){
     }
 
     if(encontrado == 0){
-        printf("Código digitado inválido! \n");
+        printf("\nCódigo digitado inválido! \n");
     }
 }
 
@@ -120,13 +120,14 @@ void atualizarQuantidade(){
             printf("\nDigite o valor atualizado da quantidade do produto %s: \n", produtos[i].nome);
             scanf("%d", &produtos[i].quantidade);
             achou = 1;
-            printf("Quantidade atualizada com sucesso!\n");
+            printf("\nQuantidade atualizada com sucesso!\n");
             return;
         }
     }
 
-    if (achou == 0){
-        printf("O código digitado é inválido! \n");
+    if(identificador <= 0 || identificador > totalProdutos){
+        printf("\nO identificador é inválido! \n");
+        return;
     }
 
 }
@@ -138,7 +139,7 @@ int main(){
 
     while(1){
 
-        printf("\t\t Menu \n");
+        printf("\n\t\t Menu \n");
         printf("\nDigite 1 para cadastrar um novo produto \n");
         printf("Digite 2 para mostrar todos os produtos \n");
         printf("Digite 3 para buscar um produto pelo código \n");
@@ -165,11 +166,11 @@ int main(){
                 break;
             }
             case 5: {
-                printf("Encerrando o sistema! \n");
+                printf("\nEncerrando o sistema! \n");
                 return;
             }
             default: {
-                printf("Opção digitada inválida! \n");
+                printf("\nOpção digitada inválida! \n");
             }
         }
     }
